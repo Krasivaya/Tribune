@@ -10,11 +10,12 @@ def welcome(request):
 # News of Today
 def news_of_day(request):
     date = dt.date.today()
+    day = convert_dates(date)
     html = f'''
             <html>
                 <body>
                     <h1>
-                        {date.day} - {date.month} - {date.year}
+                        News for {day}, {date.day} - {date.month} - {date.year}
                     </h1>
                 </body>
             </html>
@@ -22,3 +23,10 @@ def news_of_day(request):
     return HttpResponse(
         html
     )
+
+# Convert Dates
+def convert_dates(dates):
+    day_number = dt.date.weekday(dates)
+    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+    day = days[day_number]
+    return day
