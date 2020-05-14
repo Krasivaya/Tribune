@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Editor, tags, Article
+from .models import Editor, Tag, Article
 
 # Editor tests
 class EditorTestClass(TestCase):
@@ -28,30 +28,30 @@ class EditorTestClass(TestCase):
         self.assertTrue(len(editor) == 0)
     
 # Tags Tests
-class tagsTestClass(TestCase):
+class TagTestClass(TestCase):
     # Setup method
     def setUp(self):
-        self.sports = tags(name='Sports')
+        self.sports = Tag(name='Sports')
 
     # Test instance
     def test_instance(self):
-        self.assertTrue(isinstance(self.sports, tags))
+        self.assertTrue(isinstance(self.sports, Tag))
 
     # Test save method
     def test_save_method(self):
         self.sports.save_tag()
-        tag = tags.objects.all()
+        tag = Tag.objects.all()
         self.assertTrue(len(tag) > 0)
 
     # Test update method
     def test_update_method(self):
         self.sports.update_tag()
-        tag = tags.objects.all()
+        tag = Tag.objects.all()
 
     # Test delete method
     def test_delete_method(self):
         self.sports.delete_tag()
-        tag = tags.objects.all()
+        tag = Tag.objects.all()
         self.assertTrue(len(tag)== 0)
 
 # Test Articles
