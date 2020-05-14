@@ -1,10 +1,12 @@
 from django.http import HttpResponse, Http404
 import datetime as dt
+from django.shortcuts import render
 
 # Welcome Page
 def welcome(request):
-    return HttpResponse(
-        'Welcome to the Tribune'
+    return render(
+        request,
+        'welcome.html'
     )
 
 # Convert Dates
