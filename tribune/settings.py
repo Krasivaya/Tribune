@@ -109,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'CAT'
+TIME_ZONE = 'Africa/Kigali'
 
 USE_I18N = True
 
