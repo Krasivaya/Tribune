@@ -1,16 +1,30 @@
+{% load bootstrap4 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Head title -->
     {% if title %}
         <title>Tribune - {{title}}</title>
     {% else %}
         <title>Tribune</title>
     {% endif %}
+
+    <!-- Links for styling -->
+    {% block styles %}
+        {% bootstrap_css %}
+    {% endblock %}
 </head>
 <body>
+    <!-- Body content -->
     {% block content %}
-        <h1>News for {{date|date:'l, d F Y'}}</h1>
+        <h1 class="text-center">News for {{date|date:'l, d F Y'}}</h1>
+    {% endblock %}
+
+    <!-- Links for scripts -->
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% bootstrap_javascript %}
     {% endblock %}
 </body>
 </html>
