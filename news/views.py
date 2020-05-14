@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, Http404
 import datetime as dt
 
 # Welcome Page
@@ -33,7 +33,11 @@ def news_of_day(request):
 
 # News of Past days
 def past_days_news(request, past_dates):
-    date = dt.datetime.strptime(past_dates, '%Y-%m-%d').date()
+    try:
+        date = dt.datetime.strptime(past_dates, '%Y-%m-%d').date()
+    except ValueError:
+        raise Http404()
+
     day = convert_dates(date)
     html = f'''
             <html>
