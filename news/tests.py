@@ -95,6 +95,12 @@ class ArticleTestClass(TestCase):
         day_news = Article.archived_news(date)
         self.assertTrue(len(day_news) == 0)
 
+    # Test search article method
+    def test_search_by_title(self):
+        search_term = 'Test Article'
+        search_results = Article.search_by_title(search_term)
+        self.assertTrue(len(search_results) > 0)
+
     # Test delete method
     def tearDown(self):
         Editor.objects.all().delete()
