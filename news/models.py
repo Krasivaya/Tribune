@@ -10,7 +10,7 @@ class Editor(models.Model):
 
     def __str__(self):
         full_name = f'{self.first_name} {self.last_name}'
-        return full_name
+        return self.first_name
 
     def save_editor(self):
         return self.save()
