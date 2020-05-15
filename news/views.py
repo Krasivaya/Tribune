@@ -26,8 +26,13 @@ def past_days_news(request, past_dates):
 
     if date == dt.date.today():
         return redirect(news_of_day)
+    
+    news = Article.archived_news(date)
     return render(
         request,
         'all-news/past-news.html',
-        {"date": date}
+        {
+            "date": date,
+            "news": news
+        }
     )
