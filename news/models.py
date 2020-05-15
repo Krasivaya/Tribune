@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 
 # Editor Model
 class Editor(models.Model):
@@ -12,12 +13,6 @@ class Editor(models.Model):
 
     def save_editor(self):
         return self.save()
-    
-    def update_editor(self):
-        return Editor.objects.filter(id=1).update(first_name='Cary')
-    
-    def delete_editor(self):
-        return Editor.objects.filter(id=1).delete()
 
 #Tag Model
 class Tag(models.Model):
@@ -29,12 +24,6 @@ class Tag(models.Model):
     def save_tag(self):
         return self.save()
 
-    def update_tag(self):
-        return Tag.objects.filter(id=1).update(name='Music')
-
-    def delete_tag(self):
-        return Tag.objects.filter(id=1).delete()
-
 # Article Model
 class Article(models.Model):
     title = models.CharField(max_length=100)
@@ -45,3 +34,17 @@ class Article(models.Model):
 
     def __str__(self):
         return self.title
+    
+    def save_article(self):
+        return self.save()
+
+    @classmethod
+    def todays_news(cls):
+        today = dt.date.today()
+        news = cls.objects.filter(pub_date__date = today)
+        return news
+
+    @classmethod
+    def archived_news(cls, days_date):
+        news = cls.objects.filter(pub_date__date = days_date)
+        return news
