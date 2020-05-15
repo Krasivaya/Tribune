@@ -6,6 +6,10 @@
     {% for news_item in news %}
         <div class="row">
             <div class="col-xs-6 col-ms-6 col-md-6 col-lg-6">
+                {% if news_item.article_image %}
+                <img src="{{news_item.article_image.url}}" class="img-responsive" width="20%" alt="{{news_item.title}} image">
+                {% else %}
+                {% endif %}
                 <h2 class="text-center">{{ news_item.title }}</h2>
             </div>
         </div>
