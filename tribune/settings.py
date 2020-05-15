@@ -129,5 +129,5 @@ STATICFILES_DIRS = [
 ]
 
 # Uploaded Images
-MEDIA_URL = '/media/'
+MEDIA_URL = '/news/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
