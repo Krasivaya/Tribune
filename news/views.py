@@ -37,6 +37,20 @@ def past_days_news(request, past_dates):
         }
     )
 
+# A single article
+def article(request, article_id):
+    try:
+        article = Article.objects.get(id = article_id)
+    except DoesNotExist:
+        raise Http404()
+    return render(
+        request,
+        'all-news/article.html',
+        {
+            "newsArticle": article
+        }
+    )
+
 # Search News 
 def search_results(request):
     if 'article' in request.GET and request.GET['article']:
