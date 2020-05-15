@@ -1,0 +1,22 @@
+{% extends 'all-news/base.html' %}
+
+{% block content %}
+    <div class="container">
+            <div class="row">
+                {% if newsArticle.article_image %}
+                <img src="{{newsArticle.article_image.url}}" class="img-responsive" width="20%" alt="{{newsArticle.title}} image">
+                {% else %}
+                {% endif %}
+                <h2>{{newsArticle.title}}</h2>
+            </div>
+            <div class="row">
+                <p>{{newsArticle.post}}</p>
+            </div>
+            <div class="row">
+                <p><small>{{newsArticle.tags}}</small></p>
+            </div>
+            <div class="row">
+                <p><small>Created {{newsArticle.pub_date|date}} at {{newsArticle.pub_date|time}} by <b>{{newsArticle.editor}}</b></small></p>
+            </div>
+    </div>
+{% endblock %}
