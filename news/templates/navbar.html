@@ -9,10 +9,17 @@
         <div class="navbar navbar-inverse bg-dark">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <div class="navbar-brand">
-                        <a href="{% url 'newsToday' %}">Tribune</a>
-                    </div>
-                    <link rel="stylesheet" href="">
+                    <a class="navbar-brand" href="{% url 'newsToday' %}">Tribune</a>
+                </div>
+                <div class="col-sm-4 col-md-4 navbar-right">
+                    <form class="navbar-form" role="search" action="{% url 'search_results' %}}">
+                        <div class="input-group">
+                            <input type="text" name="article" class="form-control" placeholder="Search Articles">
+                            <div class="input-group-btn">
+                                <button type="submit" class="form-control btn btn-secondary ml-2 btn-md"><i class="glyphicon glyphicon-search"></i></button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
