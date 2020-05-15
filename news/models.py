@@ -48,3 +48,8 @@ class Article(models.Model):
     def archived_news(cls, days_date):
         news = cls.objects.filter(pub_date__date = days_date)
         return news
+
+    @classmethod
+    def search_by_title(cls, search_term):
+        search_articles = cls.objects.filter(title__icontains = search_term)
+        return search_articles
