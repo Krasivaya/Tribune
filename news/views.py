@@ -2,12 +2,6 @@ from django.http import HttpResponse, Http404
 import datetime as dt
 from django.shortcuts import render, redirect
 
-# Welcome Page
-def welcome(request):
-    return render(
-        request,
-        'welcome.html'
-    )
 
 # News of Today
 def news_of_day(request):
