@@ -16,7 +16,7 @@
                 <p><small>{{newsArticle.tags}}</small></p>
             </div>
             <div class="row">
-                <p><small>Created {{newsArticle.pub_date|date}} at {{newsArticle.pub_date|time}} by <b>{{newsArticle.editor}}</b></small></p>
+                <p><small>Created {{newsArticle.pub_date|date}} at {{newsArticle.pub_date|time}} by <b>{{newsArticle.editor.first_name}} {{newsArticle.editor.last_name|upper}}</b></small></p>
             </div>
     </div>
 {% endblock %}
