@@ -31,6 +31,7 @@ class Article(models.Model):
     editor = models.ForeignKey(Editor)
     tags = models.ManyToManyField(Tag)
     pub_date = models.DateTimeField(auto_now_add = True)
+    article_image = models.ImageField(upload_to='articles/', blank=True)
 
     def __str__(self):
         return self.title
