@@ -58,3 +58,4 @@ class Article(models.Model):
 
 class NewsletterSubscriber(models.Model):
     name = models.CharField(max_length=30)
+    email = models.EmailField()
