@@ -7,4 +7,4 @@ def welcome_mail(name, receiver):
     sender = 'semwagacarine@gmail.com'
         
     txt_content = render_to_string('email/welcome_mail.txt', {"name":name})
-    
+    html_content = render_to_string('email/welcome_mail.html', {"name":name})
