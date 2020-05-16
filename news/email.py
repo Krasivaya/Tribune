@@ -10,4 +10,5 @@ def welcome_mail(name, receiver):
     html_content = render_to_string('email/welcome_mail.html', {"name":name})
 
     msg = EmailMultiAlternatives(subject, txt_content, sender, [receiver])
-    
+    msg.attach_alternative(html_content, 'text/html')
+    msg.send()
