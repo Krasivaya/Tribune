@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-from django.decouple import config
+from decouple import config
 
 # Email Environment variables
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
