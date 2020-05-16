@@ -13,12 +13,17 @@ def news_of_day(request):
     if request.methods == 'POST':
         form = NewsletterForm(request.POST)
         if form.is_valid:
+            print('Valid')
+    else:
+        form = NewsletterForm()
+
     return render(
         request,
         'all-news/today-news.html',
         {
             "date": date,
-            "news":news
+            "news":news,
+            "letterForm": form
         }
     )
 
