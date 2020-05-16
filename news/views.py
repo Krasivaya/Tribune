@@ -9,6 +9,8 @@ from .forms import NewsletterForm
 def news_of_day(request):
     date = dt.date.today()
     news = Article.todays_news()
+
+    if request.methods == 'POST':
     return render(
         request,
         'all-news/today-news.html',
