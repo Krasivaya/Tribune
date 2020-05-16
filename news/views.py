@@ -12,9 +12,9 @@ def news_of_day(request):
 
     if request.method == 'POST':
         form = NewsletterForm(request.POST)
-        if form.is_valid:
-            name = form.cleaned_date['name']
-            email = form.cleaned_date['email']
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
             subscriber = NewsletterSubscriber(name = name, email = email)
             subscriber.save()
             HttpResponseRedirect('news_of_day')
