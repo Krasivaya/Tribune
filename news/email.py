@@ -5,4 +5,6 @@ from django.template.loader import render_to_string
 def welcome_mail(name, receiver):
     subject = 'Welcome To The Tribune NewsLetter'
     sender = 'semwagacarine@gmail.com'
+        
+    txt_content = render_to_string('email/welcome_mail.txt', {"name":name})
     
