@@ -3,6 +3,7 @@ import datetime as dt
 from django.shortcuts import render, redirect
 from .models import Article, NewsletterSubscriber
 from .forms import NewsletterForm
+from .email import welcome_mail
 
 
 # News of Today
@@ -17,6 +18,9 @@ def news_of_day(request):
             email = form.cleaned_data['email']
             subscriber = NewsletterSubscriber(name = name, email = email)
             subscriber.save()
+
+            # Send welcome email
+            welcome_mail(name, email)
             HttpResponseRedirect('news_of_day')
     else:
         form = NewsletterForm()
