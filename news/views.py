@@ -2,6 +2,7 @@ from django.http import HttpResponse, Http404
 import datetime as dt
 from django.shortcuts import render, redirect
 from .models import Article
+from .forms import NewsletterForm
 
 
 # News of Today
