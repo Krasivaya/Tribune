@@ -8,3 +8,6 @@ def welcome_mail(name, receiver):
         
     txt_content = render_to_string('email/welcome_mail.txt', {"name":name})
     html_content = render_to_string('email/welcome_mail.html', {"name":name})
+
+    msg = EmailMultiAlternatives(subject, txt_content, sender, [receiver])
+    
