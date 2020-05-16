@@ -4,6 +4,7 @@ from django.shortcuts import render, redirect
 from .models import Article, NewsletterSubscriber
 from .forms import NewsletterForm
 from .email import welcome_mail
+from django.contrib.auth.decorators import login_required
 
 
 # News of Today
@@ -56,6 +57,7 @@ def past_days_news(request, past_dates):
     )
 
 # A single article
+@login_required(login_url = '/accounts/login/')
 def article(request, article_id):
     try:
         article = Article.objects.get(id = article_id)
