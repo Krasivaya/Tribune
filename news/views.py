@@ -1,7 +1,7 @@
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 import datetime as dt
 from django.shortcuts import render, redirect
-from .models import Article
+from .models import Article, NewsletterSubscriber
 from .forms import NewsletterForm
 
 
@@ -13,7 +13,11 @@ def news_of_day(request):
     if request.method == 'POST':
         form = NewsletterForm(request.POST)
         if form.is_valid:
-            print('Valid')
+            name = form.cleaned_date['name']
+            email = form.cleaned_date['email']
+            subscriber = NewsletterSubscriber(name = name, email = email)
+            subscriber.save()
+            HttpResponseRedirect('news_of_day')
     else:
         form = NewsletterForm()
 
