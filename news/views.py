@@ -12,6 +12,7 @@ def news_of_day(request):
 
     if request.methods == 'POST':
         form = NewsletterForm(request.POST)
+        if form.is_valid:
     return render(
         request,
         'all-news/today-news.html',
