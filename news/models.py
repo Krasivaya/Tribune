@@ -57,4 +57,4 @@ class Article(models.Model):
         return search_articles
 
 class NewsletterSubscriber(models.Model):
-    
+    name = models.CharField(max_length=30)
