@@ -10,7 +10,7 @@ def news_of_day(request):
     date = dt.date.today()
     news = Article.todays_news()
 
-    if request.methods == 'POST':
+    if request.method == 'POST':
         form = NewsletterForm(request.POST)
         if form.is_valid:
             print('Valid')
