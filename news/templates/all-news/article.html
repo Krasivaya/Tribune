@@ -10,7 +10,9 @@
                 <h2>{{newsArticle.title}}</h2>
             </div>
             <div class="row">
-                <p>{{newsArticle.post}}</p>
+                {% autoescape on %}
+                <p>{{newsArticle.post| safe}}</p>
+                {% endautoescape %}
             </div>
             <div class="row">
                 <p><small>{{newsArticle.tags}}</small></p>
